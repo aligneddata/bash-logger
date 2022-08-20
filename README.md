@@ -1,13 +1,13 @@
 README
 ======
 
-What is KSH Logger?
+What is BASH Logger?
 -------------------
-KSH Logger is a small and lightweight library for simplifying log generation in shell scripts.
+BASH Logger is a small and lightweight library for simplifying log generation in shell scripts.
 
 In general, logging should be easy, fast, and helpful, and when developing small scripts this characteristics are even more important. With shell scripts we are usually solving small problems, or automating small tasks, we don't want to struggle with logging, we want it to work.
 
-KSH Logger uses convention over configuration, it comes ready to import and use, setting parameters to common values for zero configuration, but if you want, most aspects (and more to come) of the logging process can be configured to provide personalization for special needs.
+BASH Logger uses convention over configuration, it comes ready to import and use, setting parameters to common values for zero configuration, but if you want, most aspects (and more to come) of the logging process can be configured to provide personalization for special needs.
 
 The aim is not to build another logging framework, or to substitute existing ones, but to keep it as a fast, easy and lightweight library.
 
@@ -49,18 +49,32 @@ Format to be used in the printf command that generates the line, currently it su
 ### LOG_STDOUT
 Set this varibale to something not "" to also dump the log messages to the standard output
 
+External environmental variables
+--------------------------------
+Aboe LOG_* variables allow you to control logging inside the scripts. Environmental variables below allow you to control the output from running environment without modifying the script.
+    SH_LOG_PATH: log file path
+    SH_LOG_FILE: log file name
+    SH_LOG_LEVEL:
+        1 - TRACE
+        2 - DEBUG
+        3 - INFO
+        4 - WARN
+        5 - ERROR
+        6 - FATAL
+    SH_LOG_DATEFORMAT: date format in logged contents. Default: %Y/%m/%d %H:%M:%S
+    SH_LOG_MESSAGEFORMAT: log message format. Default: "%-19s - %-5s - %s\n" for DATE, LEVEL
+                          and payload messages.
+    SH_LOG_STDOUT: 1 - output to stdout, in additional to log file
+                   2 - do not output to stdout.
+
+Refer to run-test-external-control.sh for an example.
+
 Loading the library
 -------------------
 As with any shell script, you can load the library by calling the source file from your script (preferable option) or if you want to embed it, you can paste the contents directly in your script.
 
     # Load the logger library
-    . logger.ksh
-
-    # Set needed configuration values
-    LOG_LEVEL=3
-
-    # Init the logger
-    logger_init
+    . logger.sh
 
 Using the functions
 -------------------
@@ -82,3 +96,4 @@ Contribute
 ----------
 * Check for open issues or open a new one to start a discussion around a feature idea or a bug.
 * Fork the repository, makie your changes and send a pull request
+* Original repo and author: https://github.com/aligneddata/ksh-logger
