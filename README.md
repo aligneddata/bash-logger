@@ -51,7 +51,8 @@ Set this varibale to something not "" to also dump the log messages to the stand
 
 External environmental variables
 --------------------------------
-Aboe LOG_* variables allow you to control logging inside the scripts. Environmental variables below allow you to control the output from running environment without modifying the script.
+Above LOG_* variables allow you to control logging inside the scripts. Environmental variables below allow you to control the output from running environment without modifying the script.
+
     SH_LOG_PATH: log file path
     SH_LOG_FILE: log file name
     SH_LOG_LEVEL:
