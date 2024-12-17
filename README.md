@@ -97,4 +97,4 @@ Contribute
 ----------
 * Check for open issues or open a new one to start a discussion around a feature idea or a bug.
 * Fork the repository, makie your changes and send a pull request
-* Original repo and author: https://github.com/aligneddata/ksh-logger
+* (Thanks to) Original repo and author: https://github.com/jmorenoamor/ksh-logger
